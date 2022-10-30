@@ -5,7 +5,7 @@
 -- В овете пришлите итоговый запрос и все что было создано для его ускорения
 
 -- Задача 1
-DROP INDEX idx_WebLog_SessionS ON Marketing.WebLog
+
 CREATE INDEX idx_WebLog_SessionS ON Marketing.WebLog (SessionStart, ServerID) INCLUDE (SessionID, UserName)
 
 DECLARE @StartTime datetime2 = '2010-08-30 16:27';
@@ -17,7 +17,7 @@ ORDER BY wl.SessionStart, wl.ServerID;
 GO
 
 -- Задача 2
-DROP INDEX idx_PostalCode ON Marketing.PostalCode
+
 CREATE INDEX idx_PostalCode ON Marketing.PostalCode (StateCode, PostalCode) INCLUDE (Country)
 
 SELECT PostalCode, Country
@@ -94,7 +94,7 @@ join Marketing.ProductModel AS pm
 ON s2.ProductModelID = pm.ProductModelID
 
 
---Исходный запрос
+--Исходный запрос-----
 SELECT
 	c.CategoryName,
 	sc.SubcategoryName,
